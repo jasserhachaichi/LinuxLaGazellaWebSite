@@ -1,0 +1,63 @@
+.text_editor {
+  background-color: var(--file-color);
+    padding: 25px 50px;
+  }
+  .text_editor .options {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 15px;
+  }
+  .text_editor button {
+    height: 40px;
+    width: 40px;
+    display: grid;
+    place-items: center;
+    border-radius: 3px;
+    border: none;
+    background-color: var(--third-color);
+    outline: none;
+    color: var(--second-color);
+  }
+  .text_editor select {
+    padding: 7px;
+    border: 1px solid var(--second-color);
+    border-radius: 3px;
+  }
+  .text_editor .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .text_editor  input[type="color"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent;
+    width: 40px;
+    height: 28px;
+    border: none;
+    cursor: pointer;
+  }
+  .text_editor input[type="color"]::-webkit-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px var(--third-color), 0 0 0 3px var(--second-color);
+  }
+  .text_editor input[type="color"]::-moz-color-swatch {
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px var(--third-color), 0 0 0 3px var(--second-color);
+  }
+  .text_editor #text-input {
+    background-color: var(--third-color);
+    margin-top: 20px;
+    border: 3px solid var(--primary-color);
+    padding: 20px;
+    height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 25px 50px rgba(7, 20, 35, 0.2);
+    overflow-y: scroll;
+  }
+  .active {
+    background-color: #e0e9ff;
+  }
+  

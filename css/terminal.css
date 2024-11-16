@@ -1,0 +1,126 @@
+#terminal-app{
+    display: none;
+  }
+  .terminal-app::selection {
+    color: var(--color-1);
+    background-color: var(--color-2);
+  }
+  .terminal-app::-moz-selection {
+    color: var(--color-1);
+    background-color: var(--color-2);
+  }
+  .terminal-app textarea {
+    left: -1000px;
+    position: absolute;
+  }
+  .terminal-app b {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  
+  /* Cursor Start */
+  .terminal-app .cursor {
+    font-size: 12px;
+    color: var(--color-3);
+    background-color: var(--color-3);
+    position: relative;
+    opacity: 1;
+    height: 1.5em;
+    width: 10px;
+    max-width: 10px;
+    transform: translateY(4px);
+    overflow: hidden;
+    text-indent: -5px;
+    display: inline-block;
+    text-decoration: blink;
+    animation: blinker 1s linear infinite;
+  }
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+  #command {
+    cursor: text;
+    height: 50px;
+    color: var(--color-3);
+  }
+  
+  
+  #liner {
+      line-height: 1.3em;
+      margin-top: -2px;
+      animation: show 0.5s ease forwards;
+      opacity: 0;
+    }
+    #liner::before {
+      color: var(--color-2);
+      content: attr(data-content);
+    }
+  
+  #liner.password::before {
+    content: 'Password:';
+  }
+  @keyframes show {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  /* Cursor End */
+  .terminal-app p {
+    display: block;
+    line-height: 1.3em;
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    margin: 0;
+    letter-spacing: 0.05em;
+    animation: typing 0.5s steps(30, end);
+  }
+  .terminal-app .no-animation {
+    animation: typing 0 steps(30, end);
+  }
+  .terminal-app .margin {
+    margin-left: 20px;
+  }
+  @keyframes typing {
+    from {
+      width: 0;
+    }
+    to {
+      width: 100%;
+    }
+  }
+  .terminal-app .index {
+    color: #DCDCCC;
+  }
+  .terminal-app .color2 {
+    color: #B89076;
+  }
+  .terminal-app .command {
+    color: var(--color-3);
+    text-shadow: 0 0 5px var(--color-3); 
+  }
+  .terminal-app .error {
+    color: #B89076;
+  }
+  .terminal-app .white {
+    color: #fff;
+  }
+  .terminal-app .inherit,
+  .terminal-app a {
+    color: #9C8394;
+  }
+  .terminal-app a {
+    text-decoration: inherit;
+  }
+  .terminal-app a:hover {
+    background: var(--color-3);
+    color: var(--color-1);
+  }
+  .terminal-app a:focus {
+    outline: 0;
+  }

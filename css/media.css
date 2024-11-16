@@ -1,0 +1,62 @@
+@media (max-width:1285px) {
+
+
+    nav ul ul li {
+        padding: 0 10px;
+    }
+
+    nav ul i {
+        color: var(--third-color);
+        font-size: 1.5rem;
+    }
+
+    .niveau-0 #desktop-reps {
+        overflow-y: scroll;
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:1000px) {
+    .side-bar {
+        width: 12vw;
+    }
+
+    .niveau-0 #desktop-reps {
+        width: calc(100% - 12vw);
+        margin-left: 12vw;
+
+    }
+    .window-app{
+        left: 12vw;
+    }
+    .file_search_path {
+        width: 50%;
+    }
+
+}
+
+@media (max-width:656px) {
+    nav .content-nav .logo {
+        max-width: 150px;
+    }
+
+    .time {
+        color: var(--primary-color);
+        font-size: 1em;
+    }
+
+    .date {
+        color: var(--third-color);
+        font-weight: 200;
+    }
+}

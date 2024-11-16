@@ -1,0 +1,40 @@
+
+#game_01{
+    display: none;
+}
+#trash{
+    display: none;
+}
+.info-msg{
+    display: none;
+    z-index: 9999;
+}
+.success-msg{
+    display: none;
+    z-index: 9999;
+}
+.warning-msg{
+    display: none;
+    z-index: 9999;
+}
+.error-msg{
+    display: none;
+    z-index: 9999;
+}
+#profile_page{
+    display:none;
+    color: var(--third-color);
+}
+#text_editor{
+    display: none;
+}
+#notification_block{
+    display: none;
+}
+#notif_box{
+    display: none;
+}
+#change_name_block{
+    display: none;
+}
+

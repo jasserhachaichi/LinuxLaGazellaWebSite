@@ -1,0 +1,115 @@
+
+.tictactoe-game-app{
+  display: grid;
+  place-items: center;
+}
+
+/* message */
+.tictactoe-game-app .message {
+  padding: 0.5rem;
+  width: calc(6.4375rem * 3 + 0.75rem * 2);
+  background-color: lightblue;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-size: 2.5rem;
+}
+
+/* board, cells */
+.tictactoe-game-app .tictactoe-game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #0a0a0a;
+  gap: 0.75rem;
+}
+
+.tictactoe-game-app .cell {
+  width: 6.4375rem;
+  height: 6.4375rem;
+  background-color: #fff;
+  cursor: pointer;
+}
+
+/* .circle, .cross */
+.tictactoe-game-app .circle::before,
+.tictactoe-game-app .cross::before,
+.tictactoe-game-app .circle-hover::before,
+.tictactoe-game-app .cross-hover::before {
+  content: "\274C";
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.tictactoe-game-app .circle::before,
+.tictactoe-game-app .circle-hover::before {
+  content: "\26AB";
+}
+
+.tictactoe-game-app .circle-hover::before,
+.tictactoe-game-app .cross-hover::before {
+  opacity: 0.3;
+  filter: grayscale(100%);
+}
+
+/* .overlay */
+.tictactoe-game-app .overlay {
+  max-height: 0px;
+  background-color: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.5rem;
+  color: #f3f3f3;
+  overflow: hidden;
+}
+
+.tictactoe-game-app .overlay h1 {
+  margin-bottom: 0.5rem;
+  background: linear-gradient(to right, #343434, #ffffff, #111);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.tictactoe-game-app .btns-grid {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tictactoe-game-app .btn {
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none;
+  color: #f3f3f3;
+  font-size: 1.5rem;
+  background-size: 200% auto;
+  transition: all 0.5s ease-in-out;
+  cursor: pointer;
+}
+
+.tictactoe-game-app .btn:hover {
+  background-position: right;
+}
+
+.tictactoe-game-app .btn-restart {
+  background-image: linear-gradient(
+    to right,
+    #314755 0%,
+    #26a0da 51%,
+    #314755 100%
+  );
+}
+
+
+
+.tictactoe-game-app .overlay.active {
+  max-height: 100vh;
+}
+
+.tictactoe-game-app .highlight {
+  background-color: lightblue;
+}

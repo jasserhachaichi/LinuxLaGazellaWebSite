@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sign in</title>
+    <link rel="stylesheet" href="css/for_all.css">
+    <link rel="stylesheet" href="css/instyle.css">
+    <link rel="stylesheet" href="css/app_controle.css">
+
+</head>
+
+<body oncontextmenu="return false">
+    <div class="contenu-page">
+        <div class="top-div">
+            <img id="clickableImage" src="images/logo.png" alt="logo">
+            <p>New to La Gazella?<a href="login.html" style="margin-left: 5px;"> Create an account &#8594;</a></p>
+        </div>
+        <div class="mid-div">
+            <div>
+                <form class="box-form" action="php/valide.php" method="POST">
+                    <span class="type" style="--n:95">Hello again<br>Welcome to La Gazella! We're glad you're here and hope you find what you're looking for.</span>
+                    <br>
+                    <p class="p1_text">Enter your mail or username</p>
+                    <div class="p2_text">
+                        <span style="margin-right: 10px;">&#8594;</span>
+                        <div class="input-group">
+                            <input id="identite" type="text" name="identite" class="effect-1"
+                                placeholder="your mail or username" />
+                            <span class="border"></span>
+                        </div>
+                        <button id="btn_1" class="btn-style-1" type="button" onclick="checkmail('sig-req')">Continue</button>
+                    </div>
+
+                    <p id="p3_text" class="p3_text">Enter your password</p>
+                    <div id="p4_text" class="p4_text">
+                        <span style="margin-right: 10px; font-weight: 900;">&#8594;</span>
+                        <div class="input-group">
+                            <input id="password" type="password" name="password" class="effect-1"
+                                placeholder="your password" />
+                            <span class="border"></span>
+                        </div>
+                        <button class="btn-style-1" type="button" onclick="checkpassword('sig-req')">Login</button>
+                        <a id="btn_back" onclick="back_btn()">back</a>
+                        
+                    </div>
+                    <div id="allResult"></div>
+                    <a  id="p7_text" class="pswfoget" onclick="pswfoget()">Forgot password?</a>
+                    
+
+
+
+
+
+                </form>
+                
+            </div>
+        </div>
+        <div class="msg">
+            <div id="success-msg" class="success-msg">
+                <i class="fa-solid fa-check"></i>
+            </div>
+            <div  id="info-msg-1" class="info-msg">
+                <p>We have sent a verification email to your registered email address.<br>Please click the link in the email to confirm your registration before 3 days.</p> 
+            </div>
+            <div  id="info-msg-2" class="info-msg"></div>
+        </div>
+    </div>
+    <div id="stars"></div>
+    <div id="stars2"></div>
+    <div id="stars3"></div>
+    <script>
+        document.getElementById("clickableImage").addEventListener("click", function() {
+        window.location.href = "index.html"; // Replace with the URL of the page you want to navigate to
+        });
+        if (document.cookie.indexOf("mail_send_cookie") >= 0) {
+            document.cookie = "mail_send_cookie=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+            var info_msg_1 = document.getElementById("info-msg-1");
+            info_msg_1.style.display = "block";
+            setTimeout(function() {
+                info_msg_1.style.display = "none";
+            }, 4000);
+        }
+        function getCookie(cookieName) {
+            var name = cookieName + "=";
+            var decodedCookie = decodeURIComponent(document.cookie);
+            var cookieArray = decodedCookie.split(';');
+            
+            for (var i = 0; i < cookieArray.length; i++) {
+                var cookie = cookieArray[i];
+                
+                while (cookie.charAt(0) === ' ') {
+                cookie = cookie.substring(1);
+                }
+                
+                if (cookie.indexOf(name) === 0) {
+                return cookie.substring(name.length, cookie.length);
+                }
+            }
+            
+            //return null;
+            }
+
+            var idCookieValue = getCookie("id_cookie");
+
+            //console.log(idCookieValue);
+
+        if (document.cookie.indexOf("id_cookie") >= 0 && idCookieValue != undefined) {
+            window.location.replace("osindex.php");
+        }
+        function back_btn() {
+            document.getElementById("allResult").innerHTML = "";
+            var btn_1 = document.getElementById('btn_1');
+            var identite = document.getElementById('identite');
+            var p3_text = document.getElementById('p3_text');
+            var p4_text = document.getElementById('p4_text');
+            var p7_text = document.getElementById('p7_text');
+            identite.disabled = false;
+            btn_1.style.animation = 'fadeIn 1s';
+            setTimeout(function() {
+                btn_1.style.display = "block";
+            }, 1800);
+
+            p3_text.style.display = "none";
+            p4_text.style.display = "none";
+            p7_text.style.display = "none";
+        }
+
+        function msg_show(mot,duree,contentMsg) {
+            var msg = document.getElementById(mot);
+            msg.style.display = "block";
+            msg.innerHTML = contentMsg;
+            setTimeout(function() {
+                msg.style.display = "none";
+            }, duree);
+        }
+
+        function checkmail() {
+            var identite = document.getElementById("identite").value;
+            if(identite.length >8 && identite!=""){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //console.log(xhr.responseText);
+                        if (xhr.responseText == "Invalid mail or username.") {
+                            document.getElementById("allResult").innerHTML = xhr.responseText;
+                        } else {
+                            document.getElementById("allResult").innerHTML = "";
+                            var btn_1 = document.getElementById('btn_1');
+                            var identite = document.getElementById('identite');
+                            var p3_text = document.getElementById('p3_text');
+                            var p4_text = document.getElementById('p4_text');
+                            var p7_text = document.getElementById('p7_text');
+                            identite.disabled = true;
+                            btn_1.style.animation = 'fadeOut 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) 2s both';
+                            setTimeout(function() {
+                                btn_1.style.display = "none";
+                            }, 1700);
+                            p3_text.style.display = "block";
+                            p4_text.style.display = "flex";
+                            p7_text.style.display = "block";
+                        }
+                    
+
+                }
+            };
+            xhr.open("POST", "php/mailcheck.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("identite=" + identite);
+        }else{
+            document.getElementById("allResult").innerHTML="You must respect the rules :<br>&#10003;   Minimum 8 Alphnum.<br>&#10003;   Only '@' and '.' for mail.<br>&#10003;   The others characters like '!,&,(,),[,],....' will we reject.";
+        };
+            //end if
+        }//end function
+
+
+        function checkpassword() {
+            var allResult = document.getElementById("allResult");
+            allResult.innerHTML = "";
+            var password = document.getElementById("password").value;
+            if(password.length >5 && password!=""){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                        console.log(xhr.responseText);
+                        if (xhr.responseText == "Admin") {
+                            allResult.innerHTML = "";
+                            msg_show("success-msg",3000,"You have successfully connected");
+                            setTimeout(function() {
+                                //window.location = "admin_Dashboard.html";
+                                window.location = "admin_Dashboard.php";
+                            }, 2000);
+                        } else if (xhr.responseText == "member") {
+                            allResult.innerHTML = "";
+                            msg_show("success-msg",3000,"You have successfully connected");
+                            setTimeout(function() {
+                                window.location = "osindex.php";
+                            }, 2000);
+                        } else {
+                            allResult.innerHTML = xhr.responseText;
+                        }
+                }
+            };
+            xhr.open("POST", "php/passwordcheck.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send("password=" + password);
+        }else{
+            document.getElementById("allResult").innerHTML="You must respect the rules :<br>&#10003;   Minimum 5 Alphnum.<br>&#10003;   The others characters like '!,&,(,),[,],....' will we reject.";
+        };
+        };//end function
+        function pswfoget(){
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    //console.log(xhr.responseText);
+                    msg_show("info-msg-2",4500,xhr.responseText);
+                    var yhr = new XMLHttpRequest();
+                    yhr.onreadystatechange = function() {
+                    };
+                    yhr.open("POST", "php/forgetpwdredirect.php", true);
+                    yhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+                    yhr.send();
+                }
+            };
+            xhr.open("POST", "php/forgetpwd.php", true);
+            xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhr.send();
+
+        };
+
+
+        const inputField1 = document.getElementById('identite');
+const wantedCharacters = "_-0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ.@";
+const wantedCharacters3 = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+inputField1.addEventListener('input', function(event) {
+  const inputValue1 = event.target.value;
+  for (let i = 0; i < inputValue1.length; i++) {
+    if (wantedCharacters.indexOf(inputValue1[i]) === -1) {
+      event.target.value = inputValue1.replace(inputValue1[i], '');
+      break;
+      //console.log("if");
+    }else{
+        //console.log("eslse");
+    };
+  }
+});
+
+
+
+
+        const inputField2 = document.getElementById('password');
+
+inputField2.addEventListener('input', function(event) {
+  const inputValue2 = event.target.value;
+  for (let i = 0; i < inputValue2.length; i++) {
+    if (wantedCharacters3.indexOf(inputValue2[i]) === -1) {
+      event.target.value = inputValue2.replace(inputValue2[i], '');
+      //console.log("if");
+      break;
+
+    }else{
+        //console.log("else");
+    }
+  }
+});
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

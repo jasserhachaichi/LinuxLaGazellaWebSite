@@ -1,0 +1,212 @@
+#profile_page li{
+    list-style-type: none;
+}
+#close_fix_bar{
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    right: 25px;
+    top: 25px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+#close_fix_bar i{
+    pointer-events: none;
+}
+#close_fix_bar:hover{
+    background-color: var(--primary-color);
+}
+#close_fix_bar:hover i{
+    color: var(--third-color);
+    transform: scale(1.6);
+}
+
+
+.profil_top{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profil_bottom{
+    height: 60%;
+    width: 100%;
+}
+.profil_top .profile_show{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profil_top .profile_show .profile_titre{
+    margin-left: 50px;
+    text-align: center;
+} 
+.profil_top .profile_show .profile_img{
+    width:200px;
+    height: 200px;
+    border: 4px solid var(--primary-color);
+    border-radius: 50%;
+    background: #fff url(../images/profile.png) center center/cover no-repeat;
+    position: relative;
+}
+.profil_top .profile_show .profile_img li{
+    position: absolute;
+    right : 10px;
+    bottom: 0;
+    color: var(--primary-color);
+    cursor: pointer;
+
+}
+.profil_top .profile_show .profile_img li i{
+    font-size: 40px;
+    color: var(--primary-color);
+    pointer-events: none;
+}
+.profil_bottom .profil_bottom_top{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.profil_bottom .profil_bottom_top div{
+    height: 70%;
+    width: 80%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-evenly;
+}
+
+.profil_bottom .profil_bottom_bottom{
+    height: 60%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.btn_change{
+    color: var(--primary-color);
+    font-size: 15px;
+    cursor: pointer;
+}
+.btn_change i{
+    margin-left: 3px;
+    pointer-events: none;
+}
+
+.modification_box{
+    display: none;
+    background-color: var(--second-opacity-1-color);
+    width: 450px;
+    min-height: 150px;
+    border: 1px solid var(--hover-color-file);
+    position: absolute;
+    top: calc(50% - 200px);
+    left: calc(50% - 200px);
+    border-radius: 10px;
+    font-weight: 500;
+    font-size:15px;
+    padding:20px;
+    color:var(--Fourth-color);
+    line-height: 25px;
+}
+#image_form{
+    width: 650px;
+    z-index: 9999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+.modification_box .p12_text{
+    display: flex;
+    align-items: center;
+}
+.modification_box .p13_text{
+    display: flex;
+    align-items: center;
+    float: right;
+}
+.modification_box .p13_text #cancel_btn{
+    cursor: pointer;
+}
+.modification_box input {
+    background-color: transparent;
+    color: var(--third-color);
+    border: none;
+    outline: none;
+    padding: 4px ;
+    width: 300px;
+    font-size: 15px;
+}
+.modification_box select{
+    width: 203px;
+    max-width: 203px;
+    border: 3px solid var(--primary-color);
+    height: 30px;
+    border-radius: 5px;
+}
+
+.modification_box input:focus {
+    background-color: var(--third-color);
+    color: var(--primary-color);
+    font-size: 18px;
+}
+.modification_box .input-group {
+    position: relative;
+    margin: 1.5rem 0;
+}
+
+.modification_box .effect-1 {
+    border-bottom: 2px solid #ccc;
+    padding-left: 0;
+}
+
+.effect-1 + .border {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 0%;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: 0.5s;
+}
+
+.effect-1:focus + .border {
+    width: 300px;
+}
+#for_input_1{display: none;}
+#for_input_2{display: none;}
+#for_input_3{display: none;}
+#for_input_4{display: none;}
+#input_1{display: none;}
+#input_2{display: none;}
+#input_3{display: none;}
+#input_4{display: none;}
+#all_req_rep{
+    color: red;
+}
+
+#drop_file_zone {
+    background-color: #EEE;
+    border: #999 5px dashed;
+    width: 290px;
+    height: 200px;
+    padding: 8px;
+    font-size: 18px;
+}
+#drag_upload_file {
+  width:50%;
+  margin:0 auto;
+}
+#drag_upload_file p {
+  text-align: center;
+}
+#drag_upload_file #selectfile {
+  display: none;
+}
